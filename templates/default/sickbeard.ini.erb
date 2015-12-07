@@ -1,0 +1,8 @@
+<%- node['sickbeard']['config'].each do |section, settings| %>
+[<%=  section %>]
+<%-   settings.each do |key, value| %>
+<%-     next if value.nil? %>
+<%=     key %> = <%= value.kind_of?(String) ? value.inspect : value %>
+<%    end %>
+<%= "" %>
+<% end %>
